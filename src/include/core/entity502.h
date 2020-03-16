@@ -31,6 +31,7 @@
 
 #include <libigesconf.h>
 #include <core/iges_entity.h>
+#include <geom/mcad_elements.h>
 
 // NOTE:
 // The associated parameter data are:
