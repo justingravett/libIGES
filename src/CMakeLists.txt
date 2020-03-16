@@ -82,6 +82,7 @@ set( IGES_SOURCES
     "${SRC_DLL}/dll_entity314.cpp"
     "${SRC_DLL}/dll_entity406.cpp"
     "${SRC_DLL}/dll_entity408.cpp"
+    "${SRC_DLL}/dll_entity502.cpp"
     "${SRC_GEOM}/mcad_elements.cpp"
     "${SRC_GEOM}/mcad_helpers.cpp"
     ${NURBS_DEPS}
@@ -231,6 +232,7 @@ set( API_FILES
         ${INC_API}/dll_entity314.h
         ${INC_API}/dll_entity406.h
         ${INC_API}/dll_entity408.h
+        ${INC_API}/dll_entity502.h
         ${INC_API}/dll_iges_curve.h
         ${INC_API}/dll_iges_entity.h
         ${INC_API}/dll_iges.h
