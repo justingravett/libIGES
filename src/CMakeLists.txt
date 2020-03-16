@@ -78,6 +78,7 @@ set( IGES_SOURCES
     "${SRC_DLL}/dll_entity128.cpp"
     "${SRC_DLL}/dll_entity142.cpp"
     "${SRC_DLL}/dll_entity144.cpp"
+    "${SRC_DLL}/dll_entity186.cpp"
     "${SRC_DLL}/dll_entity308.cpp"
     "${SRC_DLL}/dll_entity314.cpp"
     "${SRC_DLL}/dll_entity406.cpp"
@@ -232,6 +233,7 @@ set( API_FILES
         ${INC_API}/dll_entity128.h
         ${INC_API}/dll_entity142.h
         ${INC_API}/dll_entity144.h
+        ${INC_API}/dll_entity186.h
         ${INC_API}/dll_entity308.h
         ${INC_API}/dll_entity314.h
         ${INC_API}/dll_entity406.h
