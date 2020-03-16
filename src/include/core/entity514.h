@@ -68,9 +68,10 @@ protected:
     virtual bool format( int &index );
     virtual bool rescale( double sf );
 
-public:
     std::list< std::pair<int, bool> > ifaces;                   //< DE and OFlag for faces
     std::vector< std::pair<IGES_ENTITY_510*, bool> > mfaces;    //< faces of the shell
+
+public:
 
     // public functions for libIGES only
     virtual bool associate(std::vector<IGES_ENTITY *> *entities);
@@ -97,10 +98,8 @@ public:
     virtual bool SetLineWeightNum( int aLineWeight );
 
     // functions unique to E514
-    // WARNING: TO BE IMPLEMENTED
-    // Access methods must be provided if a user ever wishes to create
-    // a MSBO
-    // XXX - TO BE IMPLEMENTED
+
+    bool AddFace( IGES_ENTITY_510* aFace, bool oFlag ); // TODO: Identify the bool temp
 };
 
 #endif  // ENTITY_514_H

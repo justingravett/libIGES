@@ -480,5 +480,18 @@ bool IGES_ENTITY_514::SetLineWeightNum( int aLineWeight )
     return false;
 }
 
-// XXX - MORE TO BE ADDED
-//WARNING: TO BE IMPLEMENTED
+bool IGES_ENTITY_514::AddFace( IGES_ENTITY_510* aFace, bool oFlag )
+{
+    if ( NULL == aFace )
+        return false;
+
+    mfaces.push_back( std::make_pair( aFace, oFlag ) );
+
+    if ( NULL != parent && parent != aFace->GetParentIGES() )
+        parent->AddEntity( (IGES_ENTITY*)aFace );
+
+    // Extend to ifaces??? - Need to confirm
+    ifaces.push_back( std::make_pair( aFace->getDESequence(), oFlag ) );
+
+    return true;
+}
