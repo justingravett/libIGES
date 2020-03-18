@@ -59,6 +59,8 @@ IGES_ENTITY_514::~IGES_ENTITY_514()
     }
 
     mfaces.clear();
+    ifaces.clear();
+
     return;
 }
 
@@ -494,4 +496,23 @@ bool IGES_ENTITY_514::AddFace( IGES_ENTITY_510* aFace, bool oFlag )
     ifaces.push_back( std::make_pair( aFace->getDESequence(), oFlag ) );
 
     return true;
+}
+
+bool IGES_ENTITY_514::GetFaces( size_t& aListSize, std::pair<IGES_ENTITY_510*, bool>* aFaceList )
+{
+    if ( mfaces.empty() )
+    {
+        aListSize = 0;
+        aFaceList = NULL;
+        return false;
+    }
+
+    aListSize = mfaces.size();
+    aFaceList = &mfaces[0];
+    return true;
+}
+
+size_t IGES_ENTITY_514::GetNFaces( void )
+{
+    return mfaces.size();
 }

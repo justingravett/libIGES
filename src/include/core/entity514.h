@@ -71,6 +71,7 @@ protected:
     std::list< std::pair<int, bool> > ifaces;                   //< DE and OFlag for faces
     std::vector< std::pair<IGES_ENTITY_510*, bool> > mfaces;    //< faces of the shell
 
+
 public:
 
     // public functions for libIGES only
@@ -99,7 +100,15 @@ public:
 
     // functions unique to E514
 
-    bool AddFace( IGES_ENTITY_510* aFace, bool oFlag ); // TODO: Identify the bool temp
+    bool AddFace( IGES_ENTITY_510* aFace, bool oFlag );
+
+    bool GetFaces( size_t& aListSize, std::pair<IGES_ENTITY_510*, bool>* aFaceList );
+
+    /**
+     * Function GetNFaces
+     * returns the number of faces in mfaces
+     */
+    size_t GetNFaces( void );
 };
 
 #endif  // ENTITY_514_H
