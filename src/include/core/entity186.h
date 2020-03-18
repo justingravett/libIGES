@@ -80,7 +80,10 @@ public:
     virtual bool SetEntityForm( int aForm );
 
     // functions unique to E186
-    // XXX - TO BE IMPLEMENTED
+
+    bool GetShell( IGES_ENTITY_514*& aPtr );
+    bool SetShell( IGES_ENTITY_514* aPtr );
+
 };
 
 #endif  // ENTITY_186_H

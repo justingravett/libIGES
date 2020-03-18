@@ -518,3 +518,48 @@ bool IGES_ENTITY_186::SetEntityForm( int aForm )
     cerr << aForm << ")\n";
     return false;
 }
+
+bool IGES_ENTITY_186::SetShell( IGES_ENTITY_514* aPtr )
+{
+    if ( mshell )
+        mshell->delReference( this );
+
+    mshell = aPtr;
+    //N1 = 0;
+
+    if ( NULL == aPtr )
+        return true;
+
+    bool dup = false;
+
+    if ( !mshell->addReference( this, dup ) )
+    {
+        mshell = NULL;
+        return false;
+    }
+
+    if ( dup )
+    {
+        ERRMSG << "\n + [BUG]: adding duplicate entry\n";
+        mshell = NULL;
+        return false;
+    }
+
+    //mshell->SetDependency( STAT_DEP_PHY );
+    //N1 = 1;
+
+    if ( NULL != parent && parent != mshell->GetParentIGES() )
+        parent->AddEntity( (IGES_ENTITY*)mshell );
+
+    return true;
+}
+
+bool IGES_ENTITY_186::GetShell( IGES_ENTITY_514*& aPtr )
+{
+    aPtr = mshell;
+
+    if ( NULL == mshell ) // && 0 != N1 )
+        return false;
+
+    return true;
+}
